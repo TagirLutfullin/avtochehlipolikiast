@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Авто Чехлы и Полики</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Стили для страницы каталога */
+        .catalog {
+            background-color: #f8f8f8;
+            padding: 40px 0;
+        }
+
+        .catalog-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer; /* Добавляем курсор-указатель для элементов */
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .product-description {
+            margin-top: 10px;
+            color: #777;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #ff5733;
+            font-weight: bold;
+        }
+
+        .product-button {
+            background-color: #ff5733;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .product-button:hover {
+            background-color: #ff4500;
+        }
+
+        .product-images-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-images-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1> <center>Каталог продукции</center></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="catalog">
+        <div class="container">
+            <h2 class="catalog-title">Наш каталог продукции</h2>
+            <div class="product-card" onclick="showProduct('Чехлы для сидений')">
+                <h3 class="product-title">Чехлы для сидений</h3>
+                <p class="product-description">Прочные чехлы для сидений автомобиля.</p>
+            </div>
+
+            <div class="product-card" onclick="showProduct('Перетяжка')">
+                <h3 class="product-title">Перетяжка</h3>
+                <p class="product-description">Перетяжка сидений и дверных обшивок.</p>
+            </div>
+
+            <div class="product-card" onclick="showProduct('Перетяжка потолка')">
+                <h3 class="product-title">Перетяжка потолка</h3>
+                <p class="product-description">Элегантная перетяжка потолка для вашего автомобиля.</p>
+            </div>
+
+           
+             <div class="product-card">
+                <h3 class="product-title">Полики</h3>
+                <p class="product-description">Выберите тип поликов: Полики, 3D или 5D.</p>
+                <button onclick="showProduct('3D')">3D Полики</button>
+                <button onclick="showProduct('5D')">5D Полики</button>
+                <button onclick="showProduct('Полики')">Полики</button>
+            </div> 
+           
+            
+
+            <div class="product-card" onclick="showProduct('Шумоизоляция')">
+                <h3 class="product-title">Шумоизоляция</h3>
+                <p class="product-description">Эффективная шумоизоляция для вашего автомобиля для улучшения комфорта в пути.</p>
+            </div>
+
+            <div id="product-images" style="display: none;">
+                <div class="container">
+                    <div class="product-images-container">
+                    </div>
+                </div>
+                <h2 class="catalog-title">
+                <div class="product-images-container">
+                    <img id="product-image" src="" alt="Изображение продукта">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Авто Чехлы и Полики</p>
+        </div>
+    </footer>
+
+    <script>
+        function showProduct(productName) {
+            var productImagesSection = document.getElementById('product-images');
+            var productImage = document.getElementById('product-image');
+
+           
+            switch (productName) {
+                case 'Чехлы для сидений':
+                    productImage.src = 'Чехлы.jpg';
+                    productImage.src = 'Чехлы 1.jpg';
+                    break;
+                case 'Перетяжка':
+                    productImage.src = 'Перетяжка.jpg';
+                    break;
+                    case 'Полики':
+                    productImage.src = 'Полики.jpg';
+                    break;
+                case '3D':
+                    productImage.src = '3д полики.jpg';
+                    break;
+                case '5D':
+                    productImage.src = '5 д полики.jpg';
+                    break;
+                case 'Перетяжка потолка':
+                    productImage.src = 'Потолок.jpg';
+                    break;
+                case 'Шумоизоляция':
+                    productImage.src = 'Шумка 3.jpg';
+                    break;
+                default:
+                    productImage.src = ''; // Если нет соответствующего пути, можно вернуть пустую строку
+            }
+
+            // Отображаем секцию с изображениями продукта
+            productImagesSection.style.display = 'block';
+
+            // Прокручиваем к секции с изображениями
+            productImagesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
